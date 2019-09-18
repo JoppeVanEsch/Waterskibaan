@@ -38,7 +38,7 @@ namespace Waterskibaan
 
     class Lijn
     {
-        public int PositieOpDeKabel;
+        public int PositieOpDeKabel { get; set; }
     }
 
     class Skies
