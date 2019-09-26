@@ -30,10 +30,7 @@ namespace Waterskibaan
 
     interface IMoves
     {
-        public int Move()
-        {
-            return 1;
-        }
+        int Move();
     }
 
     class Lijn
