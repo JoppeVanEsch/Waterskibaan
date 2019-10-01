@@ -9,6 +9,13 @@ namespace Waterskibaan
 {
     class Program
     {
+        static void Main(string[] args)
+        {
+            //TestOpdracht2();
+            //TestOpdracht3();
+            TestOpdracht4();
+        }
+
         private static void TestOpdracht2()
         {
             Kabel kabel = new Kabel();
@@ -26,6 +33,11 @@ namespace Waterskibaan
             Console.WriteLine(kabel.ToString());
             kabel.NeemLijnInGebruik(lijn2);
             Console.WriteLine(kabel.ToString());
+            for (int i = 0; i < 10; i++)
+            {
+                kabel.VerschuiftLijnen();
+                Console.WriteLine(kabel.ToString());
+            }
             for (int i = 0; i < 7; i++)
             {
                 kabel.VerschuiftLijnen();
@@ -40,111 +52,39 @@ namespace Waterskibaan
             }
         }
 
-        static void Main(string[] args)
+        private static void TestOpdracht3()
         {
-            TestOpdracht2();
-        }
-    }
-
-    class Sporter
-    {
-        public int AantalRondenNogTeGaan { get; set; }
-        public Zwemvest Zwemvest { get; set; }
-        public Skies Skies { get; set; }
-        public Color KledingKleur { get; set; }
-        public List<IMoves> MyProperty { get; set; }
-
-        public Sporter(List<IMoves> moves)
-        {
-
-        }
-    }
-
-    interface IMoves
-    {
-        int Move();
-    }
-
-    class Lijn
-    {
-        public int PositieOpDeKabel { get; set; }
-    }
-
-    class Skies
-    {
-
-    }
-
-    class Zwemvest
-    {
-
-    }
-
-    class Kabel
-    {
-        LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
-
-        public bool IsStartPositieLeeg()
-        {
-            if (_lijnen.Count == 0 || _lijnen.First.Value.PositieOpDeKabel >= 0)
+            LijnenVoorraad lijnenVoorraad = new LijnenVoorraad();
+            //Lijn lijn = new Lijn();
+            //Lijn lijn1 = new Lijn();
+            //Lijn lijn2 = new Lijn();
+            for (int i = 0; i < 5; i++)
             {
-                return true;
+                lijnenVoorraad.LijnToevoegenAanRij(new Lijn());
             }
-            return false;
+            Console.WriteLine(lijnenVoorraad.ToString());
+            lijnenVoorraad.VerwijderEersteLijn();
+            Console.WriteLine(lijnenVoorraad.ToString());
         }
-
-        public void NeemLijnInGebruik(Lijn lijn)
+        private static void TestOpdracht4()
         {
-            if (IsStartPositieLeeg())
+            LijnenVoorraad lijnenVoorraad = new LijnenVoorraad();
+            Kabel kabel = new Kabel();
+            Waterskibaan waterskibaan = new Waterskibaan(lijnenVoorraad, kabel);
+            Lijn lijn1 = new Lijn();
+            Lijn lijn2 = new Lijn();
+            Lijn lijn3 = new Lijn();
+            kabel.NeemLijnInGebruik(lijn1);
+            kabel.VerschuiftLijnen();
+            kabel.NeemLijnInGebruik(lijn2);
+            kabel.VerschuiftLijnen();
+            kabel.NeemLijnInGebruik(lijn3);
+            Console.WriteLine(waterskibaan.ToString());
+            for (int i = 0; i < 15; i++)
             {
-                lijn.PositieOpDeKabel = 0;
-                _lijnen.AddFirst(lijn);
+                waterskibaan.VerplaatsKabel();
+                Console.WriteLine(waterskibaan.ToString());
             }
-        }
-
-        public void VerschuiftLijnen()
-        {
-            foreach (Lijn lijn in _lijnen)
-            {
-                if (lijn.PositieOpDeKabel < 9)
-                {
-                    lijn.PositieOpDeKabel++;
-                }
-                else
-                {
-                    _lijnen.Remove(lijn);
-                    _lijnen.AddFirst(lijn);
-                    lijn.PositieOpDeKabel = 0;
-                }
-            }
-        }
-
-        public Lijn VerwijderLijnVanKabel()
-        {
-            foreach (Lijn lijn in _lijnen)
-            {
-                if (lijn.PositieOpDeKabel == 9)
-                {
-                    return lijn;
-                }
-            }
-            return null;
-        }
-
-        public override string ToString()
-        {
-            string returnString = null;
-            int i = 0;
-            foreach (Lijn lijn in _lijnen)
-            {
-                if (i > 0)
-                {
-                    returnString += "|";
-                }
-                returnString += lijn.PositieOpDeKabel.ToString();
-                i++;
-            }
-            return returnString;
         }
     }
 }
