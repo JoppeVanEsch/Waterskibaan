@@ -8,6 +8,8 @@ namespace Waterskibaan
 {
     interface IMoves
     {
+        int MoelijkheidGraad { get; }
+        int Score { get; }
         int Move();
     }
 }

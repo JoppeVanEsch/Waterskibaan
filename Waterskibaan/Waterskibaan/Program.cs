@@ -13,7 +13,8 @@ namespace Waterskibaan
         {
             //TestOpdracht2();
             //TestOpdracht3();
-            TestOpdracht4();
+            //TestOpdracht4();
+            TestOpdracht5();
         }
 
         private static void TestOpdracht2()
@@ -85,6 +86,12 @@ namespace Waterskibaan
                 waterskibaan.VerplaatsKabel();
                 Console.WriteLine(waterskibaan.ToString());
             }
+        }
+
+        private static void TestOpdracht5()
+        {
+            Sporter sporter = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            Console.WriteLine(sporter.ToString());
         }
     }
 }

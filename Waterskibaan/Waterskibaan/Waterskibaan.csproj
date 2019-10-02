@@ -49,6 +49,7 @@
     <Compile Include="Lijn.cs" />
     <Compile Include="LijnenVoorraad.cs" />
     <Compile Include="MoveCollection.cs" />
+    <Compile Include="Moves.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Skies.cs" />
