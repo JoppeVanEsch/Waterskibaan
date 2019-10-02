@@ -29,14 +29,7 @@ namespace Waterskibaan
             Random random = new Random();
             sporter.AantalRondenNogTeGaan = random.Next(0, 1);
 
-            Color color = new Color();
-
-            int R = (byte)random.Next(0, 255);
-            int G = (byte)random.Next(0, 255);
-            int B = (byte)random.Next(0, 255);
-            color =  Color.FromArgb(R, G, B);
-
-            sporter.KledingKleur = color;
+            
         }
 
         public void VerplaatsKabel()

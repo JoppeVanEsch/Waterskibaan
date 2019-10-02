@@ -17,6 +17,15 @@ namespace Waterskibaan
 
         public Sporter(List<IMoves> moves)
         {
+            Random random = new Random();
+            Color color = new Color();
+
+            int R = (byte)random.Next(0, 255);
+            int G = (byte)random.Next(0, 255);
+            int B = (byte)random.Next(0, 255);
+            color = Color.FromArgb(R, G, B);
+
+            KledingKleur = color;
             Moves = moves;
         }
 
