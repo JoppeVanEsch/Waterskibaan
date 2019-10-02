@@ -14,7 +14,9 @@ namespace Waterskibaan
             //TestOpdracht2();
             //TestOpdracht3();
             //TestOpdracht4();
-            TestOpdracht5();
+            //TestOpdracht5();
+            //TestOpdracht7();
+            TestOpdracht8();
         }
 
         private static void TestOpdracht2()
@@ -92,6 +94,45 @@ namespace Waterskibaan
         {
             Sporter sporter = new Sporter(MoveCollection.GetWillekeurigeMoves());
             Console.WriteLine(sporter.ToString());
+        }
+
+        private static void TestOpdracht7()
+        {
+            LijnenVoorraad lijnenVoorraad = new LijnenVoorraad();
+            Kabel kabel = new Kabel();
+            Waterskibaan waterskibaan = new Waterskibaan(lijnenVoorraad, kabel);
+            Skies skies = new Skies();
+            Zwemvest zwemvest = new Zwemvest();
+            Sporter sporter = new Sporter(MoveCollection.GetWillekeurigeMoves());
+
+            sporter.Zwemvest = zwemvest;
+            sporter.Skies = skies;
+            waterskibaan.SporterStart(sporter);
+
+            for (int i = 0; i < 15; i++)
+            {
+                waterskibaan.VerplaatsKabel();
+                Console.WriteLine(waterskibaan.ToString());
+            }
+
+            //Console.WriteLine(sporter.ToString());
+        }
+
+        private static void TestOpdracht8()
+        {
+            LijnenVoorraad lijnenVoorraad = new LijnenVoorraad();
+            Kabel kabel = new Kabel();
+            Waterskibaan waterskibaan = new Waterskibaan(lijnenVoorraad, kabel);
+            Sporter sporter = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            Skies skies = new Skies();
+            Zwemvest zwemvest = new Zwemvest();
+
+            sporter.Zwemvest = zwemvest;
+            sporter.Skies = skies;
+            waterskibaan.SporterStart(sporter);
+
+
+            //Console.WriteLine(sporter.ToString());
         }
     }
 }

@@ -41,6 +41,11 @@ namespace Waterskibaan
                     _lijnen.Remove(lijn);
                     _lijnen.AddFirst(lijn);
                     lijn.PositieOpDeKabel = 0;
+                    if (lijn.Sporter.AantalRondenNogTeGaan > 0)
+                    {
+                        Console.WriteLine("Ronde minder");
+                        lijn.Sporter.AantalRondenNogTeGaan--;
+                    }
                     break;
                 }
             }
@@ -50,7 +55,7 @@ namespace Waterskibaan
         {
             foreach (Lijn lijn in _lijnen)
             {
-                if (lijn.PositieOpDeKabel == 9)
+                if (lijn.PositieOpDeKabel == 9 && lijn.Sporter.AantalRondenNogTeGaan == 1)
                 {
                     _lijnen.Remove(lijn);
                     return lijn;

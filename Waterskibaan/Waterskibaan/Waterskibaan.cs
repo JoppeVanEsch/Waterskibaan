@@ -25,16 +25,21 @@ namespace Waterskibaan
 
         public void SporterStart(Sporter sporter)
         {
+            if (sporter.Skies == null || sporter.Zwemvest == null)
+            {
+                throw new Exception();
+            }
+
             Kabel.NeemLijnInGebruik(LijnenVoorraad.VerwijderEersteLijn());
             Random random = new Random();
-            sporter.AantalRondenNogTeGaan = random.Next(0, 1);
-
-            
+            Kabel.NeemLijnInGebruik(LijnenVoorraad.VerwijderEersteLijn());
+            sporter.AantalRondenNogTeGaan = random.Next(1, 2);
         }
 
         public void VerplaatsKabel()
         {
             Kabel.VerschuiftLijnen();
+            //LijnenVoorraad.LijnToevoegenAanRij(Kabel.VerwijderLijnVanKabel());
             Lijn tempKabel = Kabel.VerwijderLijnVanKabel();
             if (tempKabel != null)
             {
