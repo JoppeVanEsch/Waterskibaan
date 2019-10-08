@@ -16,7 +16,8 @@ namespace Waterskibaan
             //TestOpdracht4();
             //TestOpdracht5();
             //TestOpdracht7();
-            TestOpdracht8();
+            //TestOpdracht8();
+            TestOpdracht10();
         }
 
         private static void TestOpdracht2()
@@ -133,6 +134,43 @@ namespace Waterskibaan
 
 
             //Console.WriteLine(sporter.ToString());
+        }
+
+        private static void TestOpdracht10()
+        {
+            //WachtrijInstructie wachtrijInstructie = new WachtrijInstructie();
+            //WachtrijStarten wachtrijStarten = new WachtrijStarten();
+            //InstructieGroep instructieGroep = new InstructieGroep();
+            //wachtrijInstructie.
+
+            WachtrijInstructie wachtrijInstructie = new WachtrijInstructie();
+            InstructieGroep instructieGroep = new InstructieGroep();
+            WachtrijStarten wachtrijStarten = new WachtrijStarten();
+
+            Sporter sp1 = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            Sporter sp2 = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            Sporter sp3 = new Sporter(MoveCollection.GetWillekeurigeMoves());
+            
+            Console.WriteLine(wachtrijInstructie.ToString());
+            wachtrijInstructie.SporterNeemPlaatsInRij(sp1);
+            wachtrijInstructie.SporterNeemPlaatsInRij(sp2);
+            Console.WriteLine(wachtrijInstructie.ToString());
+            wachtrijInstructie.SporterNeemPlaatsInRij(sp3);
+            Console.WriteLine(wachtrijInstructie.ToString());
+
+            Console.WriteLine(instructieGroep.ToString());
+            instructieGroep.SporterNeemPlaatsInRij(sp1);
+            instructieGroep.SporterNeemPlaatsInRij(sp2);
+            Console.WriteLine(instructieGroep.ToString());
+            instructieGroep.SporterNeemPlaatsInRij(sp3);
+            Console.WriteLine(instructieGroep.ToString());
+
+            Console.WriteLine(wachtrijStarten.ToString());
+            wachtrijStarten.SporterNeemPlaatsInRij(sp1);
+            wachtrijStarten.SporterNeemPlaatsInRij(sp2);
+            Console.WriteLine(wachtrijStarten.ToString());
+            wachtrijStarten.SporterNeemPlaatsInRij(sp3);
+            Console.WriteLine(wachtrijStarten.ToString());
         }
     }
 }

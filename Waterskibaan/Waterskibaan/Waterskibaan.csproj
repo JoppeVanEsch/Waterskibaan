@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="IMoves.cs" />
     <Compile Include="InstructieGroep.cs" />
-    <Compile Include="IWachtrij.cs" />
+    <Compile Include="Wachtrij.cs" />
     <Compile Include="Kabel.cs" />
     <Compile Include="Lijn.cs" />
     <Compile Include="LijnenVoorraad.cs" />
