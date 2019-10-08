@@ -9,47 +9,47 @@ namespace Waterskibaan
 {
     class Waterskibaan
     {
-        public LijnenVoorraad LijnenVoorraad { get; }
-        public Kabel Kabel { get; }
+        public LijnenVoorraad _lijnen = new LijnenVoorraad();
+        public Kabel _kabel = new Kabel();
 
-        public Waterskibaan(LijnenVoorraad lijnenVoorraad, Kabel kabel)
+        public Waterskibaan()
         {
             for (int i = 0; i < 15; i++)
             {
-                lijnenVoorraad.LijnToevoegenAanRij(new Lijn());
+                _lijnen.LijnToevoegenAanRij(new Lijn());
             }
-
-            LijnenVoorraad = lijnenVoorraad;
-            Kabel = kabel;
         }
 
         public void SporterStart(Sporter sporter)
         {
             if (sporter.Skies == null || sporter.Zwemvest == null)
-            {
-                throw new Exception();
-            }
+                throw new Exception("Een sporter heeft skies en een zwemvest nodig!");
 
-            Kabel.NeemLijnInGebruik(LijnenVoorraad.VerwijderEersteLijn());
+            if (!_kabel.IsStartPositieLeeg()) return;
+
+            Lijn lijn = _lijnen.VerwijderEersteLijn();
+
+            lijn.Sporter = sporter;
             Random random = new Random();
-            Kabel.NeemLijnInGebruik(LijnenVoorraad.VerwijderEersteLijn());
-            sporter.AantalRondenNogTeGaan = random.Next(1, 2);
+            lijn.Sporter.AantalRondenNogTeGaan = random.Next(1, 2);
+
+            _kabel.NeemLijnInGebruik(lijn);
         }
 
         public void VerplaatsKabel()
         {
-            Kabel.VerschuiftLijnen();
-            //LijnenVoorraad.LijnToevoegenAanRij(Kabel.VerwijderLijnVanKabel());
-            Lijn tempKabel = Kabel.VerwijderLijnVanKabel();
-            if (tempKabel != null)
+            _kabel.VerschuiftLijnen();
+            
+            Lijn lijn = _kabel.VerwijderLijnVanKabel();
+            if (lijn != null)
             {
-                LijnenVoorraad.LijnToevoegenAanRij(tempKabel);
+                _lijnen.LijnToevoegenAanRij(lijn);
             }
         }
 
         public override string ToString()
         {
-            return LijnenVoorraad.ToString() + " " + Kabel.ToString();
+            return _lijnen.ToString() + " " + _kabel.ToString();
         }
     }
 }
