@@ -17,7 +17,14 @@ namespace Waterskibaan
             //TestOpdracht5();
             //TestOpdracht7();
             //TestOpdracht8();
-            TestOpdracht10();
+            //TestOpdracht10();
+            TestOpdracht11();
+        }
+
+        private static void TestOpdracht11()
+        {
+            Game game = new Game();
+            game.Initialize();
         }
 
         private static void TestOpdracht2()
@@ -74,7 +81,7 @@ namespace Waterskibaan
         {
             LijnenVoorraad lijnenVoorraad = new LijnenVoorraad();
             Kabel kabel = new Kabel();
-            Waterskibaan waterskibaan = new Waterskibaan(lijnenVoorraad, kabel);
+            Waterskibaan waterskibaan = new Waterskibaan();
             Lijn lijn1 = new Lijn();
             Lijn lijn2 = new Lijn();
             Lijn lijn3 = new Lijn();
@@ -101,7 +108,7 @@ namespace Waterskibaan
         {
             LijnenVoorraad lijnenVoorraad = new LijnenVoorraad();
             Kabel kabel = new Kabel();
-            Waterskibaan waterskibaan = new Waterskibaan(lijnenVoorraad, kabel);
+            Waterskibaan waterskibaan = new Waterskibaan(/*lijnenVoorraad, kabel*/);
             Skies skies = new Skies();
             Zwemvest zwemvest = new Zwemvest();
             Sporter sporter = new Sporter(MoveCollection.GetWillekeurigeMoves());
@@ -123,7 +130,7 @@ namespace Waterskibaan
         {
             LijnenVoorraad lijnenVoorraad = new LijnenVoorraad();
             Kabel kabel = new Kabel();
-            Waterskibaan waterskibaan = new Waterskibaan(lijnenVoorraad, kabel);
+            Waterskibaan waterskibaan = new Waterskibaan(/*lijnenVoorraad, kabel*/);
             Sporter sporter = new Sporter(MoveCollection.GetWillekeurigeMoves());
             Skies skies = new Skies();
             Zwemvest zwemvest = new Zwemvest();
