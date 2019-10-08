@@ -133,15 +133,11 @@ namespace Waterskibaan
             waterskibaan.SporterStart(sporter);
 
 
-            //Console.WriteLine(sporter.ToString());
+            Console.WriteLine(sporter.ToString());
         }
 
         private static void TestOpdracht10()
         {
-            //WachtrijInstructie wachtrijInstructie = new WachtrijInstructie();
-            //WachtrijStarten wachtrijStarten = new WachtrijStarten();
-            //InstructieGroep instructieGroep = new InstructieGroep();
-            //wachtrijInstructie.
 
             WachtrijInstructie wachtrijInstructie = new WachtrijInstructie();
             InstructieGroep instructieGroep = new InstructieGroep();
