@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    class Kabel
+    public class Kabel
     {
-        private LinkedList<Lijn> _lijnen = new LinkedList<Lijn>();
+        public LinkedList<Lijn> Lijnen { get; } = new LinkedList<Lijn>();
 
         public bool IsStartPositieLeeg()
         {
-            if (_lijnen.Count == 0 || _lijnen.First.Value.PositieOpDeKabel > 0)
+            if (Lijnen.Count == 0 || Lijnen.First.Value.PositieOpDeKabel > 0)
             {
                 return true;
             }
@@ -23,41 +23,50 @@ namespace Waterskibaan
         {
             if (IsStartPositieLeeg())
             {
-                //lijn.PositieOpDeKabel = 0;
-                _lijnen.AddFirst(lijn);
+                lijn.PositieOpDeKabel = 0;
+                Lijnen.AddFirst(lijn);
             }
         }
 
         public void VerschuiftLijnen()
         {
-            foreach (Lijn lijn in _lijnen)
+            if (Lijnen?.Last?.Value?.PositieOpDeKabel >= 9)
+            {
+                Lijn lijnL = Lijnen.Last.Value;
+                lijnL.PositieOpDeKabel = -1;
+                lijnL.Sporter.AantalRondenNogTeGaan--;
+                Lijnen.RemoveLast();
+                Lijnen.AddFirst(lijnL);
+            }
+            foreach (Lijn lijn in Lijnen)
             {
                 if (lijn.PositieOpDeKabel < 9)
                 {
                     lijn.PositieOpDeKabel++;
                 }
-                else
+                /*else
                 {
-                    //_lijnen.Remove(lijn);
-                    //_lijnen.AddFirst(lijn);
+                    Lijnen.Remove(lijn);
+                    Lijnen.AddFirst(lijn);
                     lijn.PositieOpDeKabel = 0;
                     if (lijn.Sporter.AantalRondenNogTeGaan > 0)
                     {
                         Console.WriteLine("Ronde minder");
                         lijn.Sporter.AantalRondenNogTeGaan--;
                     }
-                    //break;
-                }
+                    break;
+                }*/
             }
+
         }
 
         public Lijn VerwijderLijnVanKabel()
         {
-            foreach (Lijn lijn in _lijnen)
+            foreach (Lijn lijn in Lijnen)
             {
-                if (lijn.PositieOpDeKabel == 9 && lijn.Sporter.AantalRondenNogTeGaan == 1)
+                if (lijn.PositieOpDeKabel == 9 && lijn.Sporter.AantalRondenNogTeGaan <= 0)
                 {
-                    //_lijnen.Remove(lijn);
+                    Lijnen.Remove(lijn);
                     return lijn;
                 }
             }
@@ -68,7 +77,7 @@ namespace Waterskibaan
         {
             string returnString = "Kabel: ";
             int i = 0;
-            foreach (Lijn lijn in _lijnen)
+            foreach (Lijn lijn in Lijnen)
             {
                 if (i > 0)
                 {

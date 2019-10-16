@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    public interface IMoves
+    public class LijnenVerplaatsArgs : EventArgs
     {
-        int MoelijkheidGraad { get; }
-        int Score { get; }
-        int Move();
+        public Sporter Sporter { get; set; }
+        public LinkedList<Lijn> Lijnen { get; set; }
     }
 }

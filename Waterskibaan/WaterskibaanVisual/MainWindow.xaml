@@ -1,0 +1,25 @@
+﻿<Window x:Class="WaterskibaanVisual.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WaterskibaanVisual"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="788" Height="600">
+    <Grid x:Name="grid" Margin="0,0,0,0">
+        <Label Content="Lijnen op voorraad: " HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="200,0,0,0" VerticalAlignment="Top" Height="30" Width="120"/>
+        <Label Content="seconde(s) voorbij " HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="200,30,0,0" VerticalAlignment="Top" Height="30" Width="111"/>
+        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="371,3,0,0" VerticalAlignment="Top" Width="75" Click="Start_Click"/>
+        <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Left" Margin="371,33,0,0" VerticalAlignment="Top" Width="75" Click="Stop_Click"/>
+        <Label x:Name="Counter" Content="0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="311,30,0,0" VerticalAlignment="Top" Height="25" Width="35"/>
+        <Label x:Name="LijnenvoorraadCounter" Content="0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="311,0,0,0" VerticalAlignment="Top" Height="25" Width="35"/>
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="500" VerticalAlignment="Bottom" Width="780" Background="#FF6DA3CF" Margin="0,0,0,-491" />
+        <Canvas x:Name="InstructionQueueCanvas" HorizontalAlignment="Left" Height="390" Margin="0,91,0,0" VerticalAlignment="Top" Width="150" Background="#FF549E4C"/>
+        <Canvas x:Name="InstuctionGroupCanvas" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFACA73C" Margin="150,91,0,0" Width="100" Height="390"/>
+        <Canvas x:Name="StartQueueCanvas" HorizontalAlignment="Left" Height="390" Margin="250,91,0,0" VerticalAlignment="Top" Width="100" Background="#FF549E4C"/>
+        <Canvas x:Name="WaterSkiLijnCanvas" HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="430" Margin="350,91,0,0" Background="#FF6DA3CF"/>
+        <Label Content="Instructie Wachtrij" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,91,0,0" Width="150" Height="26"/>
+        <Label Content="Instructie Groep" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,91,0,0" Width="100" Height="26"/>
+        <Label Content="Start Wachtrij" HorizontalAlignment="Left" Margin="250,91,0,0" VerticalAlignment="Top" Width="100" Height="26"/>
+    </Grid>
+</Window>

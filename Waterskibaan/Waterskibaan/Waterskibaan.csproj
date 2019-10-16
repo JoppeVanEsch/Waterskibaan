@@ -42,11 +42,16 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="IMoves.cs" />
+    <Compile Include="InstructieAfgelopenArgs.cs" />
     <Compile Include="InstructieGroep.cs" />
+    <Compile Include="LijnenVerplaatsArgs.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="NieuweBezoekerArgs.cs" />
     <Compile Include="Wachtrij.cs" />
     <Compile Include="Kabel.cs" />
     <Compile Include="Lijn.cs" />

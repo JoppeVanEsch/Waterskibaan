@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -18,13 +18,24 @@ namespace Waterskibaan
             //TestOpdracht7();
             //TestOpdracht8();
             //TestOpdracht10();
-            TestOpdracht11();
+            //TestOpdracht11();
+            //TestOpdracht12();
         }
 
         private static void TestOpdracht11()
         {
-            Game game = new Game();
-            game.Initialize();
+            //Game game = new Game();
+            //game.Initialize();
+        }
+
+        static void TestOpdracht12()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Opdracht 12:");
+            Console.ResetColor();
+
+            //Game game = new Game();
+            //game.Initialize();
         }
 
         private static void TestOpdracht2()
@@ -153,7 +164,7 @@ namespace Waterskibaan
             Sporter sp1 = new Sporter(MoveCollection.GetWillekeurigeMoves());
             Sporter sp2 = new Sporter(MoveCollection.GetWillekeurigeMoves());
             Sporter sp3 = new Sporter(MoveCollection.GetWillekeurigeMoves());
-            
+
             Console.WriteLine(wachtrijInstructie.ToString());
             wachtrijInstructie.SporterNeemPlaatsInRij(sp1);
             wachtrijInstructie.SporterNeemPlaatsInRij(sp2);

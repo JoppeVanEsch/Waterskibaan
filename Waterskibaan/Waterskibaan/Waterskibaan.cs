@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Waterskibaan
 {
-    class Waterskibaan
+    public class Waterskibaan
     {
         public LijnenVoorraad _lijnen = new LijnenVoorraad();
         public Kabel _kabel = new Kabel();
+        public bool isGestart = false;
 
         public Waterskibaan()
         {
@@ -47,9 +48,19 @@ namespace Waterskibaan
             }
         }
 
+        public void Start()
+        {
+            isGestart = true;
+        }
+
+        public void Stop()
+        {
+            isGestart = false;
+        }
+
         public override string ToString()
         {
-            return _lijnen.ToString() + " " + _kabel.ToString();
+            return _lijnen.ToString() + "\t" + _kabel.ToString();
         }
     }
 }
