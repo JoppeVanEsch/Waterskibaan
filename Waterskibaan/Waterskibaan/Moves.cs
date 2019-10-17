@@ -8,6 +8,8 @@ namespace Waterskibaan
 {
     public class Jump : IMoves
     {
+        public string name { get { return "Jump"; } }
+
         public int MoelijkheidGraad { get { return 30; } }
 
         public int Score { get { return 70; } }
@@ -27,6 +29,8 @@ namespace Waterskibaan
 
     public class Omdraaien : IMoves
     {
+        public string name { get { return "Omdraaien"; } }
+
         public int MoelijkheidGraad { get { return 20; } }
 
         public int Score { get { return 80; } }
@@ -46,6 +50,7 @@ namespace Waterskibaan
 
     public class EenBeen : IMoves
     {
+        public string name { get { return "EenBeen"; } }
         public int MoelijkheidGraad { get { return 50; } }
         public int Score { get { return 50; } }
 
@@ -63,6 +68,7 @@ namespace Waterskibaan
     }
     public class EenHand : IMoves
     {
+        public string name { get { return "EenHand"; } }
         public int MoelijkheidGraad { get { return 80; } }
         public int Score { get { return 20; } }
 

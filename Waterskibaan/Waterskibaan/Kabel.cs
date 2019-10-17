@@ -9,6 +9,7 @@ namespace Waterskibaan
     public class Kabel
     {
         public LinkedList<Lijn> Lijnen { get; } = new LinkedList<Lijn>();
+        public int Laps = 0;
 
         public bool IsStartPositieLeeg()
         {
@@ -35,6 +36,7 @@ namespace Waterskibaan
                 Lijn lijnL = Lijnen.Last.Value;
                 lijnL.PositieOpDeKabel = -1;
                 lijnL.Sporter.AantalRondenNogTeGaan--;
+                Laps++;
                 Lijnen.RemoveLast();
                 Lijnen.AddFirst(lijnL);
             }
@@ -44,18 +46,6 @@ namespace Waterskibaan
                 {
                     lijn.PositieOpDeKabel++;
                 }
-                /*else
-                {
-                    Lijnen.Remove(lijn);
-                    Lijnen.AddFirst(lijn);
-                    lijn.PositieOpDeKabel = 0;
-                    if (lijn.Sporter.AantalRondenNogTeGaan > 0)
-                    {
-                        Console.WriteLine("Ronde minder");
-                        lijn.Sporter.AantalRondenNogTeGaan--;
-                    }
-                    break;
-                }*/
             }
 
         }

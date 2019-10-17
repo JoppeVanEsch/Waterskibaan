@@ -19,7 +19,7 @@ namespace Waterskibaan
 
             for (int i = 0; i < aantalMoves; i++)
             {
-                int welkeMove = random2.Next(1,4);
+                int welkeMove = random2.Next(1,5);
 
                 switch (welkeMove)
                 {

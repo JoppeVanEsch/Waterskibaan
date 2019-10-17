@@ -27,6 +27,11 @@ namespace Waterskibaan
         public delegate void LijnenVerplaatstHandler(LijnenVerplaatsArgs args);
         public event LijnenVerplaatstHandler LijnenVerplaatst;
 
+        public Game()
+        {
+            _logger = new Logger(waterskibaan._kabel);
+        }
+
         public void Initialize(DispatcherTimer timer)
         {
             _logger = new Logger(waterskibaan._kabel);
@@ -50,11 +55,7 @@ namespace Waterskibaan
         private void OnTimerEvent(object source, EventArgs e)
         {
             _counter++;
-
-            Console.WriteLine(waterskibaan);
-            Console.WriteLine(_wachtrijInstructie);
-            Console.WriteLine(_instructieGroep);
-            Console.WriteLine(_wachtrijStarten);
+            Console.WriteLine(this.ToString());
         }
 
         private void OnNieuweBezoeker(object source, EventArgs e)
@@ -67,7 +68,7 @@ namespace Waterskibaan
                 Sporter = bezoeker
             };
 
-            _logger.Bezoeker.Add(bezoeker);
+            _logger.AddBezoeker(bezoeker);
 
             NieuweBezoeker?.Invoke(args);
         }
@@ -120,38 +121,6 @@ namespace Waterskibaan
             }
         }
 
-        //public override string ToString()
-        //{
-        //    var data = "Waterskibaan\n\n";
-
-        //    data += $"{waterskibaan}\n";
-        //    data += $"{_wachtrijInstructie}\n";
-        //    data += $"{_instructieGroep}\n";
-        //    data += $"{_wachtrijStarten}\n\n";
-
-        //    data += $"Totaal aantal bezoekers: {_logger.Bezoeker.Count}\n";
-        //    if (_logger.Bezoeker.Count > 0)
-        //    {
-        //        var laps = 0;
-        //        var uniqueMoves = new List<string>();
-
-        //        _logger.Bezoeker.ForEach(x => laps += Math.Abs(x.AantalRondenNogTeGaan));
-        //        waterskibaan._kabel.Lijnen.ToList().ForEach(line => line.Sporter.Moves.ForEach(move => uniqueMoves.Add(move.ToString())));
-        //        uniqueMoves = uniqueMoves.Distinct().ToList();
-
-        //        data += $"Hoogste score: {_logger.Bezoeker.Max(x => x.Score)}\n";
-        //        data += $"Totaal aantal rondjes: {laps}\n";
-        //        data += $"Unieke moves: ";
-        //        uniqueMoves.ForEach(move => data += $"\n - {move}");
-        //    }
-        //    else
-        //    {
-        //        data += "Hoogste score: 0";
-        //        data += "Totaal aantal rondjes: 0";
-        //        data += "Unieke moves: []";
-        //    }
-
-        //    return data;
-        //}
+        
     }
 }

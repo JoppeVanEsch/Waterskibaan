@@ -30,6 +30,8 @@ namespace WaterskibaanVisual
         private readonly List<Sporter> _finishedSporters = new List<Sporter>();
         private LinkedList<Lijn> _lines = new LinkedList<Lijn>();
 
+        private readonly logRender _dataRenderer;
+
         public MainWindow()
         {
             ResizeMode = ResizeMode.CanMinimize;
@@ -46,7 +48,8 @@ namespace WaterskibaanVisual
             _game.InstructieAfgelopen += OnInstructionFinished;
             _game.LijnenVerplaatst += OnMoveLines;
 
-            _dispatcherTimer.Tick += (source, args) => canvas.Children.Clear();
+            _dataRenderer = new logRender(_game._logger, this);
+
             _dispatcherTimer.Tick += (source, args) => InstructionQueueCanvas.Children.Clear();
             _dispatcherTimer.Tick += (source, args) => InstuctionGroupCanvas.Children.Clear();
             _dispatcherTimer.Tick += (source, args) => StartQueueCanvas.Children.Clear();
@@ -108,6 +111,7 @@ namespace WaterskibaanVisual
             DrawInstructionGroup();
             DrawStartQueue();
             DrawWaterSkiLanes();
+            _dataRenderer.Render();
         }
 
 
@@ -251,15 +255,20 @@ namespace WaterskibaanVisual
             {
                 var sporter = CreateDrawableSporter(_finishedSporters[i]);
 
-                if (i < 10)
+                if (i < 13)
                 {
                     Canvas.SetTop(sporter, 29 + (i * 28));
                     Canvas.SetRight(sporter, 5);
                 }
-                else
+                else if (i >= 13 && i < 26)
                 {
-                    Canvas.SetTop(sporter, 29 + ((i - 10) * 28));
+                    Canvas.SetTop(sporter, 29 + ((i - 13) * 28));
                     Canvas.SetRight(sporter, 35);
+                }
+                else if (i >= 26)
+                {
+                    Canvas.SetTop(sporter, 29 + ((i - 26) * 28));
+                    Canvas.SetRight(sporter, 65);
                 }
 
                 StartQueueCanvas.Children.Add(sporter);
@@ -346,7 +355,7 @@ namespace WaterskibaanVisual
                     {
                         move = new TextBlock()
                         {
-                            Text = line.Sporter.HuidigeMove.ToString(),
+                            Text = line.Sporter.HuidigeMove.name,
                             Foreground = new SolidColorBrush(Colors.Black)
                         };
                     }
