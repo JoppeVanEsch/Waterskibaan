@@ -9,12 +9,11 @@ namespace Waterskibaan
 {
     public class Logger
     {
-        public List<Sporter> Bezoeker { get; set; }
+        public static List<Sporter> Bezoeker = new List<Sporter>();
         public Kabel Kabel;
 
         public Logger(Kabel kabel)
         {
-            Bezoeker = new List<Sporter>();
             Kabel = kabel;
         }
 
@@ -75,36 +74,6 @@ namespace Waterskibaan
             }
 
             return tempMoves.Select(move => move.name).Distinct().Take(10).ToList();
-
-            /*
-            List<IMoves> uniekeMoves = new List<IMoves>();
-            Kabel.Lijnen.ToList().ForEach(line => line.Sporter.Moves.ForEach(move => uniekeMoves.Add(move)));
-            uniekeMoves = uniekeMoves.Distinct().ToList();
-            Console.WriteLine("-------------------/");
-            foreach (var item in uniekeMoves)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("-------------------");
-
-            return uniekeMoves;
-            /*
-            
-            Kabel.Lijnen.ToList().ForEach(line => line.Sporter.Moves.ForEach(move => uniekeMoves.Add(move)));
-            uniekeMoves = uniekeMoves.Distinct().ToList();
-
-            var Moves =
-                (from bezoeker in Kabel.Lijnen
-                 select returnData =  from Sporter.Moves.ForEach(move => returnData.Add(move)));
-
-            foreach (List<IMoves> list in Moves.ToList())
-            {
-                foreach (IMoves item in list)
-                {
-                    returnData.Add(item);
-                }
-            }
-            return returnData.Distinct().ToList();*/
         }
 
         private bool ColorsAreClose(Color a, Color z, int threshold = 50)
