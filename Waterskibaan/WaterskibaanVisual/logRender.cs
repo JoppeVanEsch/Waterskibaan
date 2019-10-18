@@ -41,9 +41,9 @@ namespace WaterskibaanVisual
         {
             _mainWindow.sp_colors.Children.Clear();
 
-            _mainWindow.lb_amountOfVisitors.Content = $"Totaal bezoekers: {_logger.GetTotalBezoekers()}";
-            _mainWindow.lb_highestScore.Content = $"Highscore: {_logger.GetHighScore()}";
-            _mainWindow.lb_amountOfVisitorsWithRedClothes.Content = $"Aantal bezoekers met rode kleding: {_logger.GetAmountOfRedSporters()}";
+            _mainWindow.lb_totalBezoekers.Content = $"Totaal bezoekers: {_logger.GetTotalBezoekers()}";
+            _mainWindow.lb_highScore.Content = $"Highscore: {_logger.GetHighScore()}";
+            _mainWindow.lb_amountOfRedSporters.Content = $"Aantal bezoekers met rode kleding: {_logger.GetAmountOfRedSporters()}";
             _logger
                 .GetListWithLightestClothes()
                 .ForEach(color => _mainWindow.sp_colors.Children.Add(CreateColorLabel(Color.FromArgb(color.A, color.R, color.G, color.B))));

@@ -16,9 +16,9 @@
         <Label Content="Instructie Wachtrij" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,39,0,0" Width="150" Height="26"/>
         <Label Content="Instructie Groep" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,39,0,0" Width="100" Height="26"/>
         <Label Content="Start Wachtrij" HorizontalAlignment="Left" Margin="250,39,0,0" VerticalAlignment="Top" Width="100" Height="26"/>
-        <Label x:Name="lb_amountOfVisitors" Content="Label" HorizontalAlignment="Left" Margin="10,441,0,0" VerticalAlignment="Top" Width="340"/>
-        <Label x:Name="lb_highestScore" Content="Label" HorizontalAlignment="Left" Margin="10,472,0,0" VerticalAlignment="Top" Width="340"/>
-        <Label x:Name="lb_amountOfVisitorsWithRedClothes" Content="Label" HorizontalAlignment="Left" Margin="350,441,0,0" VerticalAlignment="Top" Width="420"/>
+        <Label x:Name="lb_totalBezoekers" Content="Label" HorizontalAlignment="Left" Margin="10,441,0,0" VerticalAlignment="Top" Width="340"/>
+        <Label x:Name="lb_highScore" Content="Label" HorizontalAlignment="Left" Margin="10,472,0,0" VerticalAlignment="Top" Width="340"/>
+        <Label x:Name="lb_amountOfRedSporters" Content="Label" HorizontalAlignment="Left" Margin="350,441,0,0" VerticalAlignment="Top" Width="420"/>
         <StackPanel x:Name="sp_colors" HorizontalAlignment="Left" Height="134" Margin="395,503,0,0" VerticalAlignment="Top" Width="375"/>
         <Label x:Name="lb_amountOfLabs" Content="Label" HorizontalAlignment="Left" Margin="350,472,0,0" VerticalAlignment="Top" Width="420"/>
         <StackPanel x:Name="sp_moves" HorizontalAlignment="Left" Height="134" Margin="10,503,0,0" VerticalAlignment="Top" Width="375"/>
